@@ -1,0 +1,878 @@
+1.non prime
+
+a = int(input())
+b = int(input())
+for x in range (a, b+1):
+    if x > 1:
+        for i in range (2, x):
+            if (x%i)== 0:
+                break
+        else:
+            print (x)
+
+2.leaf year
+
+date = input("Enter the date to be checked: ")
+c=date.split("/")
+b = list(map(int,c))
+input_year=(b[2])
+
+if(input_year%4 == 0):
+    if(input_year%100 == 0):
+        if(input_year%400 == 0):
+            print("%d is Leap Year" %input_year)
+        else:
+            print("%d is not the Leap Year" %input_year)
+    else:
+        print("%d is the Leap Year" %input_year)
+else:
+    print("%d is not the Leap Year" %input_year)
+
+x=input_year%4
+if x!=0:
+    print("Previous Leap year:", input_year-x)
+else:
+    print("Next leap year:", input_year+4)
+
+3.perfect number
+
+Number = int(input(" Please Enter any Number: "))
+Sum = 0
+for i in range(1, Number):
+    if(Number % i == 0):
+        Sum = Sum + i
+if (Sum == Number):
+    print(" %d is a Perfect Number" %Number)
+else:
+    print(" %d is not a Perfect Number" %Number)
+
+4.pythagorean triplets
+
+A=input("Enter upper limit:")
+c=0
+m=2
+if A.isnumeric():
+    x=int(A)
+    while(c<x):
+        for n in range(1,m+1):
+            a=m*m-n*n
+            b=2*m*n
+            c=m*m+n*n
+            if(c>x):
+                break
+            if(a==0 or b==0 or c==0):
+                break
+            print(a,b,c)
+        m=m+1
+else:
+    print("invalid input")
+
+5.sum of n digit numbers
+
+num=int(input("Enter the number:"))
+Sum=0
+temp=num
+while temp>0:
+    digit=temp%10
+    Sum+=digit
+    temp=temp//10
+print("Sum of Digits:", Sum)
+
+6.armstrong
+
+num=int(input("Enter the number:"))
+Sum=0
+temp=num
+while temp>0:
+    digit=temp%10
+    Sum+=digit**3
+    temp=temp//10
+if Sum==num:
+    print("Armstrong Number")
+else:
+    print("Not a Armstrong Number")
+
+7.harshad number
+
+num=int(input("Enter the number:"))
+Sum=0
+temp=num
+while temp>0:
+    digit=temp%10
+    Sum+=digit
+    temp=temp//10
+if num%Sum==0:
+    print("Harshad Number")
+else:
+    print("Not a Harshad Number")
+
+8.happynumber
+
+def happy(n):
+    temp=n
+    sum=0
+    while temp>0:
+        digit=temp%10
+        sum=digit**2+sum
+        temp=temp//10
+    return sum
+    
+# Main Program
+
+num=int(input("Enter the number:"))
+result=num
+while result!=1 and result!=4:
+    result=(happy(result))
+if result==1:
+    print("True")
+elif result==4:
+    print("False")
+
+9.tech number
+
+n = 3025
+m = str(n)
+a = m[:len(m)//2]
+b = m[len(m)//2:]
+c = int(a)+int(b)
+d = c**2
+
+if(d==n):
+    print("Tech number")
+else:
+    print("Not a Tech number")
+
+10.simple intrest
+
+p=int(input("Enter the Principle amount:"))
+n=int(input("Enter the number of years:"))
+SC=input("Senior Citizen Yes/No:")
+G=input("Male/Female:")
+if SC=='Y' and G=='M':
+    print("SI=",(p*n*12)/100)
+elif SC=='Y' and G=='F':
+    print("SI=",(p*n*15)/100)
+else:
+    print("SI=",(p*n*10)/100)
+
+11.1st n factor
+
+x=int(input("Enter the number:"))
+y=[]
+print("The factors of",x,"are:")
+for i in range(1, x):
+    if x % i == 0:
+        y.append(i)
+print(y)
+print("Number of factors:", len(y))
+n=int(input("Enter N value:"))
+if n>len(y):
+    print("Invalid")
+else:
+    print("First", n, "factors:")
+    for k in range(0,n):
+        print(y[k], end=' ')
+    
+12.nth factor
+
+x=int(input("Enter the number:"))
+y=[]
+print("The factors of",x,"are:")
+for i in range(1, x + 1):
+    if x % i == 0:
+        y.append(i)
+print(y)
+print("Number of factors:", len(y))
+n=int(input("Enter N value:"))
+print(n, "th factor is:",y[n-1])
+
+13. permutation
+
+import itertools
+n=input("Enter the number")
+P=list(itertools.permutations(n))
+print(*[''.join(p) for p in P])
+
+14. find squre cube
+
+import math
+num=float(input("Enter the number:"))
+print("Square number=",math.pow(num,2))
+print("Cube number=",round(math.pow(num,3),3))
+
+15. binary to decimal
+
+num=input("Enter the binary number:")
+bin_num="01"
+for i in range(len(num)):
+    binary=True
+    if num[i] not in bin_num:
+        print("Invalid input")
+        binary=False
+        break
+if binary:
+    dec_number=int(num,2)
+    oct_number=oct(dec_number)
+    hexa=hex(dec_number)
+    print("Decimal Equivalent=",dec_number)
+    print("Octal Equivalent=",oct_number)
+    print("Hexa Equivalent=",hexa)
+
+16.add binary
+
+num1=input("Enter the binary number 1=")
+num2=input("Enter the binary number 2=")
+sum=bin(int(num1,2)+int(num2,2))
+print("Sum of binary numbers: ",sum[2:])
+
+17. gretest binary
+
+a='1101'
+b='1110'
+c='1111'
+
+bina=int(a,2)
+binb=int(b,2)
+binc=int(c,2)
+
+if bina>binb and bina>binc:
+    print("Greatest is", a)
+elif binb>bina and binb>binc:
+    print("Greatest is", b)
+else:
+    print("Greatest is", c)
+
+18.matrix multiplication
+
+X=[[1,2],
+   [5,3]]
+Y=[[2,3],
+   [4,1]]
+result=[[0,0],
+        [0,0]]
+
+# iterate through rows of X
+for i in range(len(X)):
+   # iterate through columns of Y
+   for j in range(len(Y[0])):
+       # iterate through rows of Y
+       for k in range(len(Y)):
+           result[i][j] += X[i][k] * Y[k][j]
+
+for r in result:
+   print(r)
+
+17.matrix addition
+
+a=[[1,2],
+   [5,3]]
+b=[[2,3],
+   [4,1]]
+c=[[0,0],
+   [0,0]]
+for i in range(len(a)):
+    for j in range(len(b)):
+        c[i][j]=a[i][j]+b[i][j]
+for i in c:
+    print(i)
+
+18.lcd gcd
+
+n1 = int(input("Enter First number :"))
+n2 = int(input("Enter Second number :"))
+x = n1
+y = n2
+while(n2!=0):
+    t = n2
+    n2 = n1 % n2
+    n1 = t
+gcd = n1
+print("GCD of {0} and {1} = {2}".format(x,y,gcd))
+lcm = (x*y)/gcd
+print("LCM of {0} and {1} = {2}".format(x,y,lcm))
+
+19.transpose matrix
+
+a=[[1,2],
+   [3,2]]
+c=[[0,0],
+   [0,0]]
+for i in range(len(a)):
+    for j in range(len(a)):
+        c[i][j]=a[j][i]
+for i in c:
+    print(i)
+20.row coloum diagnoal
+
+#Initialize matrix a  
+a = [[1, 2, 3],  
+    [4, 5, 6],  
+    [7, 8, 9]]  
+   
+#Calculates number of rows and columns present in given matrix  
+rows = len(a);  
+cols = len(a[0]);  
+   
+#Calculates sum of each row of given matrix  
+for i in range(0, rows):  
+    sumRow = 0;  
+    for j in range(0, cols):  
+        sumRow = sumRow + a[i][j];  
+    print("Sum of " + str(i+1) +" row: " + str(sumRow));  
+   
+#Calculates sum of each column of given matrix  
+for i in range(0, rows):  
+    sumCol = 0;  
+    for j in range(0, cols):  
+        sumCol = sumCol + a[j][i];  
+    print("Sum of " + str(i+1) +" column: " + str(sumCol));
+
+#Calculates sum of diagonal
+diagonal=0
+for k in range(0,rows):
+    diagonal=diagonal+a[k][k]
+print("Diagonal sum",diagonal)
+
+12. three integers
+
+def findKthNumber(m, n, k):
+        
+    low = 1
+    high = n*m
+        
+    while low < high:
+        mid = (low + high) // 2
+        count = 0
+        for i in range(1, m+1):
+            count += min(n, mid//i)
+        if count < k:
+            low = mid + 1
+        else:
+            high = mid
+    return low
+
+#Driver Program
+m=3
+n=3
+k=5
+print(findKthNumber(m,n,k))
+
+13.sum of boundary 
+
+def printBoundary(a, m, n):
+    for i in range(m):
+        for j in range(n):
+            if (i == 0):
+                print a[i][j],
+            elif (i == m-1):
+                print a[i][j],
+            elif (j == 0):
+                print a[i][j],
+            elif (j == n-1):
+                print a[i][j],
+            else:
+                print " ",
+        print
+  
+  
+# Driver code
+if _name_ == "_main_":
+    a = [[1, 2, 3, 4], [5, 6, 7, 8],
+         [1, 2, 3, 4], [5, 6, 7, 8]]
+
+14.sipral order 
+
+a=[[2,5,3],
+   [6,4,1],
+   [9,7,8]]
+l=[]
+for i in range(len(a[0])):
+    l.append(a[0][i])
+for j in range(1,len(a)-1):
+    l.append(a[j][-1])
+for k in range(1,len(a[-1])+1):
+    l.append(a[-1][-k])
+for m in range(len(a[0])-1):
+    l.append(a[1][m])
+print(l)
+
+14.sum of n number 
+
+N=int(input("Enter the limit:"))
+count=0
+for i in range(1,N+1):
+    count+=i
+print("Sum of N natural numbers",count)
+
+14.sum of 1squre.....
+
+N=int(input("Enter the limit:"))
+count=0
+for i in range(1,N+1):
+    count+=i*i
+print("Sum of square of N natural numbers",count)
+
+12.factorial number
+
+def fact(n):
+    if n==0 or n==1:
+        return 1
+    if n>1:
+        return n*fact(n-1)
+
+# Main program
+num=int(input("Enter the number: "))
+print(fact(num))
+
+12.sum of 2!
+
+def fact(n):
+    if n==0 or n==1:
+        return 1
+    if n>1:
+        return n*fact(n-1)
+
+# Main program
+num=int(input("Enter the number: "))
+sum=0
+for i in range(1,num+1):
+    sum+=fact(i)
+print(sum)        
+
+12.find the sum of 2!/
+
+def fact(n):
+    if n==0 or n==1:
+        return 1
+    if n>1:
+        return n*fact(n-1)
+
+# Main program
+num=int(input("Enter the number: "))
+sum=0
+for i in range(1,num+1):
+    sum+=fact(i)/i
+print(sum)        
+
+13.sum of squre nd squre of sum
+
+n=20
+x=(n*(n+1)*(2*n+1))/6
+y=((n*(n+1))/2)**2
+print("Difference:",y-x)
+
+13.sum of digits triangles
+
+def digits_sum():
+	for i in reversed(range(len(triangle_num) - 1)):
+		for j in range(len(triangle_num[i])):
+			triangle_num[i][j] += max(triangle_num[i + 1][j], triangle_num[i + 1][j + 1])
+	return str(triangle_num[0][0])
+
+#Main Program
+triangle_num = 
+	[[3],
+           [4,6],
+          [2,7,6],
+        [8,5,9,3]]
+print(digits_sum())
+
+12.fibinocci
+
+def Fibonacci(n):
+
+    if n < 0:
+        print("Incorrect input")
+
+    elif n == 0:
+        return 0
+ 
+    elif n == 1 or n == 2:
+        return 1
+ 
+    else:
+        return Fibonacci(n-1) + Fibonacci(n-2)
+ 
+# Driver Program
+num=int(input("Enter the number of terms="))
+for i in range(num):
+    print(Fibonacci(i))
+
+33. Vehicles and children program
+
+M=int(input("Enter the number of vehicles:"))
+N=int(input("Enter number of children: "))
+x=M%N
+if x==0:
+    print("You are so lucky")
+elif x!=0 and x%2!=0:
+    print("Mr.Peter gets", x, "Vehicles")
+elif x!=0 and x%2==0:
+    print("Mr.Peter gets", x, "Vehicles. He is lucky")
+
+34. Find the difference between two dates. 
+
+from datetime import datetime
+from dateutil import relativedelta
+
+# get two dates
+d1 = '17/7/1980'
+d2 = '16/3/2007'
+
+# convert string to date object
+start_date = datetime.strptime(d1, "%d/%m/%Y")
+end_date = datetime.strptime(d2, "%d/%m/%Y")
+
+# Get the relativedelta between two dates
+delta = relativedelta.relativedelta(end_date, start_date)
+print('Years, Months, Days between two dates is')
+print(delta.years, 'Years,', delta.months, 'months,', delta.days, 'days')
+
+delta.years
+d3=d1.split('/')
+d4=d2.split('/')
+BY=int(d3[2])
+JY=int(d4[2])
+
+if(delta.years>=19 and BY%4==0):
+    print("I m a lucky adult")
+elif delta.years<19:
+    print("I m aspiring to become adult")
+    
+if BY%4==0:
+    print("Birth year is leap Year")
+else:
+    print("Birth year is not a leap Year")
+
+if JY%4==0:
+    print("Joining year is leap Year")
+else:
+    print("Joining year is not a leap Year")
+
+35. Calendar Programs
+
+# Current time
+from datetime import datetime
+now=datetime.now()
+print(now)
+
+# Current date
+from datetime import datetime
+now=datetime.today()
+print(now)
+
+# Entire month in a year
+import calendar
+y = int(input("Enter the Year :"))
+print(calendar.prcal(y))
+
+# Particular month in a year
+import calendar
+y = int(input("Enter the Year :"))
+m=int(input("Enter the month :"))
+print(calendar.month(y,m))
+
+#Program to find number of weekdays in(mm/yyyy)
+import numpy as np
+# Number of weekdays in March 2017
+print("Number of weekdays in March 2017:",
+      np.busday_count('2017-03', '2017-04'))
+
+  
+# Number of sundays in Nov 2020
+print("Number of Sunday in november 2020:",
+      np.busday_count('2020-11', '2020-12',weekmask='Sun'))
+# input year and month
+yearMonth = '2017-05'
+  
+# getting date of first monday
+date = np.busday_offset(yearMonth, 0, roll='forward',weekmask='Mon')
+# display date
+print(date)
+
+12.taxi bill
+
+driver_name=str(input("enter name="))
+car_number=input("enter car number=")
+km=int(input("how many km="))
+print("driver name=",driver_name)
+print("car number=",car_number)
+if(km>0 and km<=25):
+    print("total bill=25 rupees")
+elif(km>25 and km<=30):
+    print("total bill=",1.5*km,"rupees")
+elif(km>30 and km<40):
+    print("total bill=",2*km,"rupees")
+
+12.merge sort
+
+list1=[]  
+list2=[]  
+num1=int(input("Enter number of elements for first list:"))  
+for i in range(1,num1+1):  
+    b=int(input("Enter element:"))  
+    list1.append(b)  
+  
+num2=int(input("Enter number of elements for second list:"))  
+for i in range(1,num2+1):  
+    d=int(input("Enter element:"))  
+    list2.append(d)  
+  
+list3=list1+list2  
+list3.sort()  
+print("Sorted list is:",list3)
+
+12.two strings have same character
+
+def match(s1,s2):
+    count=0
+    
+    for i in range(min(len(s1),len(s2))):
+        if s1[i].lower()==s2[i].lower():
+            count=count+1
+    return count
+
+#Driver Program
+S1="What"
+S2="watch"
+print("Total number of matches:")
+print(match(S1,S2))
+
+13.reverse the order of the words.
+
+str1=input("Enter the string: ")
+str2=str1.split()[::-1]
+print(*str2)
+
+12.mirror image
+
+num= int(input("Enter the integer: "))
+num1=str(num)
+num2=num1[::-1]
+print(num2)
+
+12.triangle star pattern
+
+def print_star_triangle(n):
+    for i in range(1, n + 1):
+        print('*' * i)
+
+# Example: Print a triangle with 5 rows
+print_star_triangle(5)
+
+
+12.sentence separated by dot.
+
+string="The cat on the wall"
+l1=list(string.split())
+print(l1)
+
+for i in range(len(l1)):
+    print(l1[i][0].upper(),end=".")
+    continue
+
+13.remove duplicates numbers 
+
+l=[1,1,2,3]
+u=[]
+for i in l:
+    if i not in u and l.count(i)==1:
+        u.append(i)
+print(list(u))
+
+
+13.Mean, Median and Mode 
+
+import statistics
+l=[1,2,3,4,5,5,1,1]
+print("mean:",statistics.mean(l))
+print("median:",statistics.median(l))
+print("mode:",statistics.mode(l))
+
+12.Nth Largest Number 
+
+lst = [14, 67, 48, 23, 5, 62]
+N = int(input("which largest number:"))
+if N <= 0 or N > len(lst):
+    print("Invalid input for N.")
+else:
+    sorted_list = sorted(lst, reverse=True)
+    nth_largest = sorted_list[N-1]
+    print(f"{N}th Largest number: {nth_largest}")
+
+12.composite numbers in an array 
+
+# Sample input
+array = [16, 18, 27, 16, 23, 21, 19]
+# Count the number of composite numbers
+count = 0
+for num in array:
+    if num < 4:
+        continue
+    for i in range(2, num):
+        if num % i == 0:
+            count += 1
+            break
+# Output the result
+print("Number of Composite Numbers =", count)
+
+
+12.to reverse an array
+
+# Sample input
+array = [16, 18, 27, 16, 23, 21, 19]
+# Reverse the array using reverse indexing
+reversed_array = array[::-1]
+# Output the result
+print("Reverse Array elements =", reversed_array)
+
+
+12.Non composite number 
+
+# Sample input
+array = [26, 28, 47, 26, 43, 51, 29]
+# Find the non-composite numbers
+non_composite_numbers = []
+for num in array:
+    if num < 2:
+        continue
+    count = 0
+    for i in range(2, num):
+        if num % i == 0:
+            count += 1
+            break
+    if count == 0:
+        non_composite_numbers.append(num)
+# Output the result
+print("Non-composite numbers in Array elements =", non_composite_numbers)
+
+
+12.negative numbers in the list 
+
+numbers = [16, -18, 27, -16, 23, -21, 19]
+count = 0
+for num in numbers:
+    if num < 0:
+        count += 1
+print("Number of negative numbers in the list:", count)
+
+12.Mth maximum number and Nth minimum number 
+
+l=[14,67,48,23,5,62]
+asc=sorted(l)
+dsc=asc[::-1]
+n=int(input("enter which largest number:"))
+m=int(input("enter which smallestnumber:"))
+print(n,"largest:",dsc[n-1])
+print(m,"smallest:",asc[m-1])
+print("sum:",dsc[n-1]+asc[m-1])
+print("difference:",dsc[n-1]-asc[m-1])
+print("product:",dsc[n-1]*asc[m-1])
+
+
+12.Remove the Duplicate 
+
+n = int(input("Enter the number of elements in the list: "))
+lst = []
+for i in range(n):
+    element = int(input(f"Enter element{i+1}: "))
+    lst.append(element)
+non_duplicate = list(set(lst))
+print("Non-duplicate items:", non_duplicate)
+
+12.
+
+nums = [3, 4, 5, 1, 2]
+left = 0
+right = len(nums) - 1
+while left < right:
+    mid = left + (right - left) // 2
+    if nums[mid] > nums[right]:
+        left = mid + 1
+    else:
+        right = mid
+min_element = nums[left]
+print(min_element)
+
+12.to insert an element in a specific index
+
+elements = [47, 34, 21, 89, 12]
+element_to_insert = 100
+position = 4
+elements.insert(position, element_to_insert)
+print("Modified list:", elements)
+
+12.of the week for that date.
+
+import datetime
+
+def findDay(day, month, year):
+    # Create a datetime object for the given date
+    date = datetime.datetime(year, month, day)
+
+    # Get the weekday as an integer (0 = Monday, 1 = Tuesday, ..., 6 = Sunday)
+    weekday = date.weekday()
+
+    # Define a list of weekday names
+    weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+    # Return the corresponding weekday name based on the weekday index
+    return weekdays[weekday]
+# Example usage
+day = 31
+month = 8
+year = 2019
+result = findDay(day, month, year)
+print(result)
+
+12. MSB and LSB
+
+s=input("enter number:")
+print("lsb:",s[0])
+print("msb:",s[-1])
+
+12.sum of all the multiples of 3 and 5 below 200
+
+c=0 
+l=[]
+for i in range(1,200):
+    if i%3==0 and i%5==0:
+        l.append(i) 
+print(sum(l))
+
+
+12.the combinations of letters
+
+import itertools      
+d ={'1':['a','b'], '2':['c','d']}
+for combo in itertools.product(*[d[k] for k in sorted(d.keys())]):
+    print(''.join(combo))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
